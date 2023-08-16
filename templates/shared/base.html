@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}"/>
+    <title>Eventer App</title>
+</head>
+
+<body>
+<div id="wrapper">
+
+    <header>
+
+        <a id="logo" href="{% url 'index' %}"
+        ><img id="logo-img" src="{% static 'images/logo.png'%}" alt="logo"
+        /></a>
+
+        <nav>
+
+            {% if profile is None %}
+                <a href="{% url 'create profile' %}">Create Profile</a>
+            {% else %}
+            <div class="guest">
+            <div class="user">
+                <a href="{% url 'dashboard' %}">Events</a>
+                <a href="{% url 'create event' %}">Add Event</a>
+                <a href="{% url 'details profile' %}">Profile</a>
+            </div>
+
+            </div>
+
+            {% endif %}
+
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <p>&copy;SoftUni Team 2023 All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>

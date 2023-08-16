@@ -1,0 +1,19 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+    <section id="edit">
+    <div class="form">
+
+        <h2>Edit Profile</h2>
+
+        <form method="post" action="{% url 'edit profile' pk=profile.pk %}" class="edit-form">
+            {{ form }}
+            {% csrf_token %}
+
+            <input class="btn submit" type="submit" value="Edit">
+
+        </form>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+<section id="details">
+    <h2>Event Details</h2>
+    <div id="details-wrapper">
+
+        <img id="details-img" class="event-image" src="{{ event.event_image }}"
+             alt="image of {{ event.event_name }}"/>
+
+        <p id="details-title">{{ event.event_name }}</p>
+
+        <p id="details-event">
+            Category: <span id="categories">{{ event.category }}</span>
+        </p>
+
+        <p id="details-event">
+            Date: <span id="date">{{ event.date }}</span></p>
+
+        <div id="info">
+            <div id="details-description">{{ event.description }}
+            </div>
+
+        </div>
+
+        <div id="action-buttons">
+            <a href="{% url 'edit event' pk=event.pk %}" id="edit-btn">Edit</a>
+            <a href="{% url 'delete event' pk=event.pk %}" id="delete-btn">Delete</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

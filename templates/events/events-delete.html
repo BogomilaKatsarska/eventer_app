@@ -1,0 +1,16 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+<section id="delete-page">
+    <div class="form">
+        <h2>Delete Event</h2>
+
+        <form method="post" action="{% url 'delete event' pk=event.pk %}">
+            {{ form }}
+            {% csrf_token %}
+            <input class="btn" type="submit" value="Delete">
+
+        </form>
+    </div>
+</section>
+
+{% endblock %}

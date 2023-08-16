@@ -1,0 +1,43 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% block content %}
+
+<section id="details">
+    <h2>Profile Details</h2>
+    <div id="details-wrapper">
+
+        <div class="profile-details-container">
+
+            {% if profile.profile_picture %}
+
+                <img class="profile-image" src="{{ profile.profile_picture }}" alt="Profile Picture of {{ profile.first_name }} {{ profile.last_name }}"/>
+
+            {% else %}
+                <img class="profile-image" src="{% static 'images/profile_image.avif'%}" alt='profile-image'/>
+
+            {% endif %}
+
+
+            <div>
+                <p id="profile-details">Name: <span
+                        id="info">{{ profile.first_name }} {{ profile.last_name }}</span>
+                </p>
+
+                <p id="profile-details">
+                    Email: <span id="info">{{ profile.email }}</span>
+                </p>
+
+                <p id="profile-details">
+                    Created Events: <span id="info">{{ total_events }}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="action-buttons">
+        <a href="{% url 'edit profile' pk=profile.pk %}" id="edit-btn">Edit</a>
+        <a href="{% url 'delete profile' pk=profile.pk %}" id="delete-btn">Delete</a>
+    </div>
+
+</section>
+
+{% endblock %}
