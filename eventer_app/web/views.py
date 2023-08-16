@@ -1,3 +1,4 @@
+from django.http import HttpRequest
 from django.shortcuts import render, redirect
 
 from eventer_app.web.forms import CreateProfileForm, CreateEventForm, EditEventForm, DeleteEventForm, EditProfileForm, \

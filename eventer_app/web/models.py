@@ -1,4 +1,4 @@
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, MinLengthValidator
 from django.db import models
 
 from eventer_app.web.validators import validate_date_not_in_the_past, validate_sting_contains_only_letters
@@ -23,7 +23,7 @@ class Profile(models.Model):
     last_name = models.CharField(
         max_length=MAX_LEN_LAST_NAME,
         validators=(
-            MinValueValidator(MIN_LEN_LAST_NAME),
+            MinLengthValidator(MIN_LEN_LAST_NAME),
         ),
         null=False,
         blank=False,
@@ -40,7 +40,7 @@ class Profile(models.Model):
     password = models.CharField(
         max_length=MAX_LEN_PASSWORD,
         validators=(
-            MinValueValidator(MIN_LEN_PASSWORD),
+            MinLengthValidator(MIN_LEN_PASSWORD),
         ),
         null=False,
         blank=False,
@@ -73,7 +73,7 @@ class Event(models.Model):
     event_name = models.CharField(
         max_length=MAX_LEN_EVENT_NAME,
         validators=(
-            MinValueValidator(MIN_LEN_EVENT_NAME),
+            MinLengthValidator(MIN_LEN_EVENT_NAME),
         ),
         null=False,
         blank=False,

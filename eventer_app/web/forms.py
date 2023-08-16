@@ -1,12 +1,11 @@
 from django import forms
-
 from eventer_app.web.models import Profile, Event
 
 
 class CreateProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('email', 'profile_picture', 'password')
+        fields = ('email', 'profile_picture', 'password',)
         widgets = {
             'password': forms.PasswordInput(),
         }
